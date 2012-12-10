@@ -31,7 +31,8 @@ For more information, please refer to <http://unlicense.org/>
 /**
  * Lithium test task for Phing.
  *
- * @author Iain Cambridge <hiThere at icambridge dot me>
+ * @author Buddy Lindsey, Jr. <percent20 at gmail.com>
+ * @author forked from - Iain Cambridge <hiThere at icambridge dot me>
  * @license Unlicense http://unlicense.org/
  */
 
