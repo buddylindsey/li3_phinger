@@ -96,12 +96,19 @@ class TestTask extends Task
 
 		$group = ($this->tests == 'all') ? lithium\test\Group::all() : $this->tests;
 
-		$report = lithium\test\Dispatcher::run($group);
+		$report = new lithium\test\Report(array(
+			'title' => 'Main Test Run',
+			'group' => new lithium\test\Group(array('data' => array('app\tests'))),
+			'format' => 'html',
+		));
+
+		$result = $report->run();
 
 		$stats = $report->stats();
 		if (!$stats['success']) {
 			throw new BuildException("Unit tests failed for {$this->tests}. {$stats['count']['passes']}/{$stats['count']['asserts']} passes. Check lithium's test suite for more information.");
 		}
+
 		return true;
 	}
 
