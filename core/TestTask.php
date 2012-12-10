@@ -46,12 +46,12 @@ class TestTask extends Task
 	 */
 	protected $li3Base;
 
-  /**
-   * Environment to run tests in default is 'test', but you can use others.
-   *
-   * @var string
-   */
-  protected $li3Env;
+	/**
+	 * Environment to run tests in default is 'test', but you can use others.
+	 *
+	 * @var string
+	 */
+	protected $li3Env;
 
 	/**
 	 * What tests are to be run. Based on the args send on the web interface.
@@ -75,10 +75,10 @@ class TestTask extends Task
 			throw new BuildException('"tests" is required');
 		}
 
-    if (empty($this->li3Env)) {
-      $this->li3Env = 'test';
-      putenv("LI3_ENV=test");
-    }
+		if (empty($this->li3Env)) {
+			$this->li3Env = 'test';
+			putenv("LI3_ENV=test");
+		}
 
 		require_once($this->li3Base . '/app/config/bootstrap.php');
 
@@ -125,16 +125,16 @@ class TestTask extends Task
 		return $this->li3Base;
 	}
 
-  public function setLi3Env($li3Env)
-  {
-    putenv("LI3_ENV=test");
-    $this->li3Env = $li3Env;
-  }
+	public function setLi3Env($li3Env)
+	{
+		putenv("LI3_ENV=test");
+		$this->li3Env = $li3Env;
+	}
 
-  public function getLi3Env()
-  {
-    return $this->li3Env;
-  }
+	public function getLi3Env()
+	{
+		return $this->li3Env;
+	}
 
 	public function setTests($tests)
 	{
