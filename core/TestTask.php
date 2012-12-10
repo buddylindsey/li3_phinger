@@ -35,7 +35,7 @@ For more information, please refer to <http://unlicense.org/>
  * @license Unlicense http://unlicense.org/
  */
 
-class Li3_TestTask extends Task
+class TestTask extends Task
 {
 
 	/**
