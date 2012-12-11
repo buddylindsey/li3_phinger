@@ -1,0 +1,20 @@
+{
+"name": "buddylindsey/li3_phinger",
+"type": "li3-libraries",
+"description": "This plugin adds ability to use phing to your lithium project",
+"keywords": ["build", "quality", "lithium", "li3", "testing"],
+"homepage": "https://github.com/buddylindsey/li3_phinger",
+"license": "MIT License",
+"authors": [
+{
+"name": "Buddy Lindsey, Jr.",
+"homepage": "http://buddylindsey.com/"
+},
+{
+"name": "Iain Cambridge",
+"homepage": "http://blog.icambridge.me"
+],
+"require": {
+"php": ">=5.3"
+}
+}
