@@ -13,6 +13,7 @@
 {
 "name": "Iain Cambridge",
 "homepage": "http://blog.icambridge.me"
+}
 ],
 "require": {
 "php": ">=5.3"
