@@ -36,7 +36,13 @@ class HtmlFormatter extends BaseFormatter{
 
 		$this->doc .= "<h3>Errors</h3>";
 		foreach($this->stats['stats']['errors'] as $p){
+			$this->doc .= "<div>";
+			$this->doc .= "Class: " . $p['class'] . "<br />";
+			$this->doc .= "Line: " . $p['line'] . "<br />";
+			$this->doc .= "Message: " . $p['message'] . "<br />";
 			$this->doc .= "Errors: " . $p['method'] . "<br />";
+			$this->doc .= "Trace: " . $p['trace'] . "<br />";
+			$this->doc .= "</div>";
 		}
 
 		$this->doc .= "<h3>Exceptions</h3>";
