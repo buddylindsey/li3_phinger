@@ -18,18 +18,38 @@ class HtmlFormatter extends BaseFormatter{
 
 	private function createHeader(){
 		$this->doc .= "<h2>Stats</h2>";
-		$this->doc .= "<pre>";
-		$this->doc .= print_r($this->stats['count'], true);
-		$this->doc .= "</pre>";
+		$this->doc .= $this->stats['asserts'] . " Assertions<br />";
+		$this->doc .= $this->stats['passes'] . " Passes<br />";
+		$this->doc .= $this->stats['fails'] . " Fails<br />";
+		$this->doc .= $this->stats['exceptions'] . " Exceptions<br />";
+		$this->doc .= $this->stats['errors'] . " Errors<br />";
+		$this->doc .= $this->stats['skips'] . " Skips";
 	}
 
 	private function createBody(){
 		$this->doc .= "<h2>Results</h2>";
+
+		$this->doc .= "<h3>Fails</h3>";
+		foreach($this->stats['stats']['fails'] as $p){
+			$this->doc .= "Fail: " . $p['method'] . "<br />";
+		}
+
+		$this->doc .= "<h3>Errors</h3>";
+		foreach($this->stats['stats']['errors'] as $p){
+			$this->doc .= "Errors: " . $p['method'] . "<br />";
+		}
+
+		$this->doc .= "<h3>Exceptions</h3>";
+		foreach($this->stats['stats']['exceptions'] as $p){
+			$this->doc .= "Exceptions: " . $p['method'] . "<br />";
+		}
+
+		$this->doc .= "<h3>Passes</h3>";
 		foreach($this->stats['stats']['passes'] as $p){
 			$this->doc .= "Pass: " . $p['method'] . "<br />";
 		}
-	}
 
+	}
 	public function save_output($results){
 		file_put_contents($results . "/final.html", $this->doc );
 	}
