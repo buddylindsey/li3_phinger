@@ -18,12 +18,12 @@ class HtmlFormatter extends BaseFormatter{
 
 	private function createHeader(){
 		$this->doc .= "<h2>Stats</h2>";
-		$this->doc .= $this->stats['asserts'] . " Assertions<br />";
-		$this->doc .= $this->stats['passes'] . " Passes<br />";
-		$this->doc .= $this->stats['fails'] . " Fails<br />";
-		$this->doc .= $this->stats['exceptions'] . " Exceptions<br />";
-		$this->doc .= $this->stats['errors'] . " Errors<br />";
-		$this->doc .= $this->stats['skips'] . " Skips";
+		$this->doc .= $this->stats['count']['asserts'] . " Assertions<br />";
+		$this->doc .= $this->stats['count']['passes'] . " Passes<br />";
+		$this->doc .= $this->stats['count']['fails'] . " Fails<br />";
+		$this->doc .= $this->stats['count']['exceptions'] . " Exceptions<br />";
+		$this->doc .= $this->stats['count']['errors'] . " Errors<br />";
+		$this->doc .= $this->stats['count']['skips'] . " Skips";
 	}
 
 	private function createBody(){
