@@ -1,6 +1,7 @@
 <?php
 
-require 'XmlFormatter'
+require_once __DIR__ . '/../formatters/XmlFormatter.php';
+require_once __DIR__ .'/../formatters/HtmlFormatter.php';
 
 /**
  * Lithium test task for Phing.
@@ -94,8 +95,8 @@ class TestTask extends Task
 
 		$stats = $report->stats();
 
-		$formatter = new XmlFormatter($stats);
-		$formatter->save_output($results);
+		$formatter = new HtmlFormatter($stats);
+		$formatter->save_output($this->results);
 
 		if (!$stats['success']) {
 			throw new BuildException("Unit tests failed for {$this->tests}. {$stats['count']['passes']}/{$stats['count']['asserts']} passes. Check lithium's test suite for more information.");
@@ -124,9 +125,19 @@ class TestTask extends Task
 		return $this->formatter;
 	}
 
+	public function setFormatter($formatter)
+	{
+		$this->formatter = $formatter;
+	}
+
 	public function getResults()
 	{
 		return $this->results;
+	}
+
+	public function setResults($results)
+	{
+		$this->results = $results;
 	}
 
 	public function getLi3Base()

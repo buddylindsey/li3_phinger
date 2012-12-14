@@ -1,17 +1,18 @@
 <?php 
 
+require_once __DIR__ . '/BaseFormatter.php';
+
 use \SimpleXMLElement;
 
-class XmlFormatter {
-	protected $stats;
+class XmlFormatter extends BaseFormatter {
 	protected $doc;
 
 	function __construct($stats) {
-		$this->stats = $stats;
-		$this->$doc = new SimpleXMLElement("<testsuites></testsuites>");
+		parent::__construct($stats);
+		$this->doc = new SimpleXMLElement("<testsuites></testsuites>");
 	}
 
-	function public save_output($results) {
-		file_put_contents($results."/result.txt", $this->stats);
+	public function save_output($results) {
+		file_put_contents($results."/result.txt", print_r($this->stats,true));
 	}
 }
