@@ -95,7 +95,7 @@ class TestTask extends Task
 
 		$stats = $report->stats();
 
-		$formatter = new HtmlFormatter($stats);
+		$formatter = new XmlFormatter($stats);
 		$formatter->save_output($this->results);
 
 		if (!$stats['success']) {
