@@ -24,7 +24,8 @@ class XmlFormatter extends BaseFormatter {
 		$this->testsuite->addAttribute("errors", $this->stats['count']['errors']);
 		$this->testsuite->addAttribute("failures", $this->stats['count']['fails']);
 		$this->testsuite->addAttribute("hostname", "localhost");
-		$this->testsuite->addAttribute("timestamp", "2012-01-01T01:01:01");
+		// gets the timestamp of when the report was generated using ISO8601_DATETIME_PATTERN
+		$this->testsuite->addAttribute("timestamp", substr(date(DateTime::ISO8601), 0, -5));
 		$this->addAllErrors();
 		$this->addAllFails();
 		$this->addAllPasses();
