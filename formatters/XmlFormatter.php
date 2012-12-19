@@ -1,4 +1,8 @@
 <?php 
+/***
+ * Outputs results in xUnit xml format which will load in a
+ * jUnit style viewer.
+ */
 
 require_once __DIR__ . '/BaseFormatter.php';
 
@@ -14,7 +18,7 @@ class XmlFormatter extends BaseFormatter {
 		$this->testsuite = $this->doc->addChild("testsuite");
 		$this->testsuite->addAttribute("id", 0);
 		$this->testsuite->addAttribute("time", 0);
-		$this->testsuite->addAttribute("name", "All Tests");
+		$this->testsuite->addAttribute("name", "Tests");
 		$this->testsuite->addAttribute("package", "lithium");
 		$this->testsuite->addAttribute("tests", $this->stats['count']['asserts']);
 		$this->testsuite->addAttribute("errors", $this->stats['count']['errors']);
@@ -32,7 +36,7 @@ class XmlFormatter extends BaseFormatter {
 			$element->addAttribute("name", $e['method']);
 			$element->addAttribute("classname", $e['class']);
 			$element->addAttribute("time", "0");
-			$fail = $element->addChild("error", "");
+			$fail = $element->addChild("error", $e['trace']);
 			$fail->addAttribute("type", $e["assertion"]);
 			$fail->addAttribute("message", $e["message"]);
 		}
@@ -42,7 +46,7 @@ class XmlFormatter extends BaseFormatter {
 			$element->addAttribute("name", $e['method']);
 			$element->addAttribute("classname", $e['class']);
 			$element->addAttribute("time", "0");
-			$fail = $element->addChild("error", "");
+			$fail = $element->addChild("error", $e['trace']);
 			$fail->addAttribute("type", $e["assertion"]);
 			$fail->addAttribute("message", $e["message"]);
 		}
